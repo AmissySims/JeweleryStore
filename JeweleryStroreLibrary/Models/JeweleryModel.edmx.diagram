@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="e7df2d90ea1e4d34acf8595d8a173b60" Name="Diagram1">
+        <EntityTypeShape EntityType="JeweleryDBModel.Busket" Width="1.5" PointX="5.25" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="JeweleryDBModel.Card" Width="1.5" PointX="3.75" PointY="16" IsExpanded="true" />
+        <EntityTypeShape EntityType="JeweleryDBModel.CategoryProduct" Width="1.5" PointX="0.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JeweleryDBModel.DeliveryPoint" Width="1.5" PointX="0.75" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="JeweleryDBModel.DeliveryType" Width="1.5" PointX="0.75" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JeweleryDBModel.Order" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JeweleryDBModel.OrderProduct" Width="1.5" PointX="5.25" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="JeweleryDBModel.OrdStatus" Width="1.5" PointX="0.75" PointY="20.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="JeweleryDBModel.Product" Width="1.5" PointX="3" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="JeweleryDBModel.ProductPhoto" Width="1.5" PointX="5.25" PointY="13.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="JeweleryDBModel.Provider" Width="1.5" PointX="6" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="JeweleryDBModel.Role" Width="1.5" PointX="1.5" PointY="17.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="JeweleryDBModel.Shipment" Width="1.5" PointX="8.25" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="JeweleryDBModel.ShipmentProduct" Width="1.5" PointX="10.5" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="JeweleryDBModel.ShipmentStatus" Width="1.5" PointX="6" PointY="16.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="JeweleryDBModel.sysdiagrams" Width="1.5" PointX="8.75" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JeweleryDBModel.User" Width="1.5" PointX="1.5" PointY="12.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="JeweleryDBModel.Warehouse" Width="1.5" PointX="5.25" PointY="19.75" IsExpanded="true" />
+        <AssociationConnector Association="JeweleryDBModel.FK_Busket_Product" ManuallyRouted="false" />
+        <AssociationConnector Association="JeweleryDBModel.FK_Busket_User" ManuallyRouted="false" />
+        <AssociationConnector Association="JeweleryDBModel.FK_Card_User" ManuallyRouted="false" />
+        <AssociationConnector Association="JeweleryDBModel.FK_Product_CategoryProduct" ManuallyRouted="false" />
+        <AssociationConnector Association="JeweleryDBModel.FK_DeliveryPoint_User1" ManuallyRouted="false" />
+        <AssociationConnector Association="JeweleryDBModel.FK_Order_DeliveryPoint" ManuallyRouted="false" />
+        <AssociationConnector Association="JeweleryDBModel.FK_Order_DeliveryType" ManuallyRouted="false" />
+        <AssociationConnector Association="JeweleryDBModel.FK_Order_OrdStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="JeweleryDBModel.FK_Order_User" ManuallyRouted="false" />
+        <AssociationConnector Association="JeweleryDBModel.FK_OrderProduct_Order" ManuallyRouted="false" />
+        <AssociationConnector Association="JeweleryDBModel.FK_OrderProduct_Product" ManuallyRouted="false" />
+        <AssociationConnector Association="JeweleryDBModel.FK_ProductPhoto_Product" ManuallyRouted="false" />
+        <AssociationConnector Association="JeweleryDBModel.FK_Shipment_Product" ManuallyRouted="false" />
+        <AssociationConnector Association="JeweleryDBModel.FK_ShipmentProduct_Product" ManuallyRouted="false" />
+        <AssociationConnector Association="JeweleryDBModel.FK_Warehouse_Product" ManuallyRouted="false" />
+        <AssociationConnector Association="JeweleryDBModel.FK_Shipment_Provider" ManuallyRouted="false" />
+        <AssociationConnector Association="JeweleryDBModel.FK_User_Role" ManuallyRouted="false" />
+        <AssociationConnector Association="JeweleryDBModel.FK_Shipment_ShipmentStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="JeweleryDBModel.FK_ShipmentProduct_Shipment" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

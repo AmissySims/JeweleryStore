@@ -1,0 +1,160 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{3318A37F-2953-4F9D-AC81-0AA188F90BA1}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>JeweleryStroreLibrary</RootNamespace>
+    <AssemblyName>JeweleryStroreLibrary</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Class1.cs" />
+    <Compile Include="Models\Busket.cs">
+      <DependentUpon>JeweleryModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Card.cs">
+      <DependentUpon>JeweleryModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CategoryProduct.cs">
+      <DependentUpon>JeweleryModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DeliveryPoint.cs">
+      <DependentUpon>JeweleryModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DeliveryType.cs">
+      <DependentUpon>JeweleryModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\JeweleryModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>JeweleryModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\JeweleryModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>JeweleryModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\JeweleryModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>JeweleryModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Order.cs">
+      <DependentUpon>JeweleryModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\OrderProduct.cs">
+      <DependentUpon>JeweleryModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\OrdStatus.cs">
+      <DependentUpon>JeweleryModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Partials\AccountUser.cs" />
+    <Compile Include="Models\Partials\Order.cs" />
+    <Compile Include="Models\Partials\Product.cs" />
+    <Compile Include="Models\Partials\Shipment.cs" />
+    <Compile Include="Models\Partials\User.cs" />
+    <Compile Include="Models\Product.cs">
+      <DependentUpon>JeweleryModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ProductPhoto.cs">
+      <DependentUpon>JeweleryModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Provider.cs">
+      <DependentUpon>JeweleryModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Role.cs">
+      <DependentUpon>JeweleryModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Shipment.cs">
+      <DependentUpon>JeweleryModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ShipmentProduct.cs">
+      <DependentUpon>JeweleryModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ShipmentStatus.cs">
+      <DependentUpon>JeweleryModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sysdiagrams.cs">
+      <DependentUpon>JeweleryModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\User.cs">
+      <DependentUpon>JeweleryModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Warehouse.cs">
+      <DependentUpon>JeweleryModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EntityDeploy Include="Models\JeweleryModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>JeweleryModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config" />
+    <None Include="Models\JeweleryModel.edmx.diagram">
+      <DependentUpon>JeweleryModel.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Models\JeweleryModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>JeweleryModel.Context.cs</LastGenOutput>
+      <DependentUpon>JeweleryModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\JeweleryModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>JeweleryModel.edmx</DependentUpon>
+      <LastGenOutput>JeweleryModel.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

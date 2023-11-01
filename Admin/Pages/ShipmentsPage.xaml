@@ -1,0 +1,122 @@
+﻿<Page x:Class="Admin.Pages.ShipmentsPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Admin.Pages"
+      mc:Ignorable="d" 
+      Loaded="Page_Loaded"
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="ShipmentsPage">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1.5*"/>
+            <RowDefinition Height="10*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0"
+                    Margin="5"
+                    Orientation="Horizontal"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center">
+            <TextBlock Text="Фильтр по статусу" 
+                       Margin="5 5"/>
+            <ComboBox x:Name="StatusCb"
+                      SelectedIndex="0"
+                      DisplayMemberPath="Title"
+                     
+                      Width="110"
+                      Margin="5"
+                      Height="20" 
+                      SelectionChanged="StatusCb_SelectionChanged"/>
+            <TextBlock Text="Поставщики" 
+                       Margin="5 5"/>
+            <ComboBox x:Name="ProvCb"
+                      SelectedIndex="0"
+                      DisplayMemberPath="Title"
+                     
+                      Width="110"
+                     Height="20" SelectionChanged="ProvCb_SelectionChanged"/>
+            <Button x:Name="AddBt" Content="+" FontWeight="Bold" 
+                    Margin="5" Style="{StaticResource MainBt}"
+                     Width="30"
+                    Click="AddBt_Click"/>
+        </StackPanel>
+        <ListView Grid.Row="1"
+                  x:Name="ShipmentList"
+                  HorizontalAlignment="Center"
+                  Margin="5 0" d:ItemsSource="{d:SampleData ItemCount=5}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Border Padding="3" BorderBrush="Aquamarine"
+                            BorderThickness="3">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="2*"/>
+                                <ColumnDefinition Width="2*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="2*"/>
+                                <RowDefinition Height="2*"/>
+                            </Grid.RowDefinitions>
+                            <StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="Поставщик"
+                                               Margin="5"/>
+                                    <TextBlock Margin="5"
+                                               Text="{Binding Provider.Title}"/>
+                                    <StackPanel Orientation="Horizontal"
+                                                Margin="5 0">
+                                        <TextBlock Text="Дата"
+                                               Margin="5"/>
+                                        <TextBlock Margin="5"
+                                               Text="{Binding Date, StringFormat=dd.MM.yyyy}"/>
+                                    </StackPanel>
+                                </StackPanel>
+
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="Статус"
+                                               Margin="5"/>
+                                    <TextBlock Margin="5"
+                                               Text="{Binding ShipmentStatus.Title}"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal" Visibility="{Binding DateVisible}">
+                                    <TextBlock Text="Дата прибытия"
+                                               Margin="5"/>
+                                    <TextBlock Margin="5"
+                                               Text="{Binding DateToCome, StringFormat=dd.MM.yyyy}"/>
+                                </StackPanel>
+                            </StackPanel>
+                            <StackPanel Grid.Column="1">
+                                <Border BorderBrush="Gray" BorderThickness="3"
+                                        Padding="10" Margin="5">
+                                    <Grid>
+                                        <Border BorderBrush="Aquamarine" BorderThickness="2"
+                                        Padding="3" >
+                                            <StackPanel>
+                                                <TextBlock Text="{Binding Product.Title}"/>
+                                                <TextBlock Text="{Binding Count, StringFormat='{}{0} шт.'}"/>
+                                            </StackPanel>
+                                        </Border>
+
+                                    </Grid>
+
+                                </Border>
+
+                                <StackPanel HorizontalAlignment="Center">
+                                    <Button Margin="5" 
+                                            Visibility="{Binding Visible}"
+                                            Style="{StaticResource MainBt}"
+                                            x:Name="EditShipBt"
+                                            Content="Редактирование"
+                                            Click="EditShipBt_Click"/>
+                                </StackPanel>
+                            </StackPanel>
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+
+        </ListView>
+    </Grid>
+</Page>

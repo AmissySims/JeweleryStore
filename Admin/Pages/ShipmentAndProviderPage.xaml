@@ -1,0 +1,34 @@
+﻿<Page x:Class="Admin.Pages.ShipmentAndProviderPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Admin.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="ShipmentAndProviderPage">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+
+            <RowDefinition Height="9*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Orientation="Horizontal"
+                    HorizontalAlignment="Center">
+            <Button x:Name="ShipmentsBt"
+                    Style="{StaticResource UpBt}"
+                    Margin="10 5"
+                    Width="100"
+                    Content=" Поставки "
+                    Click="ShipmentsBt_Click"/>
+            <Button x:Name="ProvidersBt"
+                    Style="{StaticResource UpBt}"
+                    Margin="10 5"
+                    Width="100"
+                    Content=" Поставщики "
+                    Click="ProvidersBt_Click"/>
+        </StackPanel>
+        <Frame x:Name="ProvFrame" NavigationUIVisibility="Hidden" Margin="5" Grid.Row="1"/>
+    </Grid>
+</Page>

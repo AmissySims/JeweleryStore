@@ -1,0 +1,114 @@
+﻿<Page x:Class="Admin.Pages.AddPages.AddEditProductPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Admin.Pages.AddPages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="AddEditProductPage">
+
+    <Grid>
+        <Border BorderBrush="Aquamarine" BorderThickness="3"
+                Padding="3" HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                >
+            <StackPanel>
+                <StackPanel Orientation="Vertical">
+                    <ListView Margin="5 0" x:Name="ImageList"
+                              HorizontalAlignment="Center"
+                              d:ItemsSource="{d:SampleData ItemCount=5}">
+                        <ListView.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <WrapPanel/>
+                            </ItemsPanelTemplate>
+                        </ListView.ItemsPanel>
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <Image Source="{Binding Image}"
+                                       Width="80"
+                                       Height="80"
+                                       RenderOptions.BitmapScalingMode="Fant"/>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                    <StackPanel Orientation="Horizontal" 
+                            HorizontalAlignment="Center">
+                        <Button x:Name="AddBt"
+                            Content=" Добавить фото "
+                            Margin="5 "
+                            Style="{StaticResource MainBt}"
+                            Click="AddBt_Click"/>
+                        <Button x:Name="DeleteBt"
+                            Content=" Удалить фото "
+                            Margin="5"
+                            Style="{StaticResource MainBt}"
+                            Click="DeleteBt_Click"/>
+                    </StackPanel>
+                </StackPanel>
+                <StackPanel HorizontalAlignment="Center">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Название" Margin="5 10"/>
+                        <TextBox Margin="5"
+                        Text="{Binding Title}" 
+                             TextWrapping="Wrap"
+                        Width="250" Height="35"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Описание" Margin="5 10"/>
+                        <TextBox Margin="5"
+                        Text="{Binding Description}" 
+                             TextWrapping="Wrap"
+                        Width="250" Height="40"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Стоимость" Margin="5 10"/>
+                        <TextBox Margin="5"
+                                 x:Name="PriceTb"
+                                 PreviewTextInput="PriceTb_PreviewTextInput"
+                                  Text="{Binding Price}" 
+                                 MaxLength="6"
+                             TextWrapping="Wrap"
+                        Width="60" Height="20"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Количество" Margin="5 10"/>
+                        <TextBox Margin="5"
+                                 x:Name="CountTb"
+                                 PreviewTextInput="PriceTb_PreviewTextInput"
+                                  Text="{Binding Count}" 
+                                 MaxLength="6"
+                             TextWrapping="Wrap"
+                        Width="60" Height="20"/>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Категория" Margin="5 10"/>
+                        <ComboBox Margin="5"
+                              x:Name="CategoryCb"
+                        SelectedItem="{Binding CategoryProduct}" 
+                        DisplayMemberPath="Title"
+                        Width="150" Height="20"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" 
+                            HorizontalAlignment="Center">
+                        <Button x:Name="SaveBt"
+                            Content=" Сохранить "
+                            Margin="5"
+                            Style="{StaticResource MainBt}"
+                            Click="SaveBt_Click"/>
+                        <Button x:Name="CancelBt"
+                            Content=" Отмена "
+                            Margin="5"
+                            Style="{StaticResource MainBt}"
+                            Click="CancelBt_Click"/>
+                    </StackPanel>
+
+                </StackPanel>
+
+            </StackPanel>
+        </Border>
+
+ 
+    </Grid>
+</Page>

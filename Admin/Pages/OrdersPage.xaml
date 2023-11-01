@@ -1,0 +1,169 @@
+﻿<Page x:Class="Admin.Pages.OrdersPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Admin.Pages"
+      mc:Ignorable="d" 
+      Loaded="Page_Loaded"
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="OrdersPage">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1.5*"/>
+            <RowDefinition Height="10*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0"
+                    Margin="5"
+                    Orientation="Horizontal"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center">
+            <TextBlock Text="Фильтр по статусу" 
+                       Margin="5 10"/>
+            <ComboBox x:Name="StatusCb"
+                      SelectedIndex="0"
+                      DisplayMemberPath="Title"
+                     
+                      Width="110"
+                      Margin="5"
+                      Height="20" 
+                      SelectionChanged="StatusCb_SelectionChanged"/>
+            <TextBlock Text="Пользователи" 
+                       Margin="5 10"/>
+            <ComboBox x:Name="UserCb"
+                      SelectedIndex="0"
+                      DisplayMemberPath="FirstName"
+                     
+                      Width="110"
+                     Height="20" SelectionChanged="UserCb_SelectionChanged"/>
+
+        </StackPanel>
+        <ListView Grid.Row="1"
+                  x:Name="OrdersList"
+                  HorizontalAlignment="Center"
+                  Margin="5 0" d:ItemsSource="{d:SampleData ItemCount=5}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Border Padding="3" BorderBrush="Aquamarine"
+                            BorderThickness="3">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="2*"/>
+                                <ColumnDefinition Width="2*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="2*"/>
+                                <RowDefinition Height="2*"/>
+                            </Grid.RowDefinitions>
+                            <StackPanel Orientation="Horizontal" Grid.Column="0" >
+
+                                <StackPanel>
+
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="Заказчик" Margin="10 5"/>
+                                        <TextBlock Text="{Binding User.FullName}"
+                                       Margin="5 5"/>
+                                        <TextBlock Text="Статус"
+                                       Margin="10 5"/>
+                                        <TextBlock Text="{Binding OrdStatus.Title}"
+                                       Margin="5 5"/>
+
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="Дата" 
+                                      Margin="10 5"/>
+                                        <TextBlock Text="{Binding Date, StringFormat=dd.MM.yyyy}"
+                                       Margin="5 5"/>
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="Кол-во товаров" 
+                                      Margin="10 5"/>
+                                        <TextBlock Text="{Binding Count, StringFormat='{}{0} шт.'}"
+                                       Margin="5 5"/>
+
+
+
+                                    </StackPanel>
+
+
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="Сумма заказа" 
+                                       Margin="10 5"/>
+                                        <TextBlock Text="{Binding TotalPrice, StringFormat='{}{0} ₽'}"
+                                      Margin="5 5"/>
+
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal">
+
+                                        <TextBlock Text="Тип доставки" 
+                                       Margin="10 5"/>
+                                        <TextBlock Text="{Binding DeliveryType.Title}"
+                                       Margin="5"/>
+
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal" Visibility="{Binding AdressVisible}">
+
+                                        <TextBlock Text="Адрес" 
+                                       Margin="10 5"/>
+                                        <TextBlock Text="{Binding AdressToDelivery}"
+                                       Margin="5"/>
+
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal" Visibility="{Binding DateVisible}">
+                                        <TextBlock Text="Дата получения" 
+                                      Margin="10 5"/>
+                                        <TextBlock Text="{Binding DateToCome, StringFormat=dd.MM.yyyy}"
+                                       Margin="5 5"/>
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal" Visibility="{Binding AdressVisible1}">
+
+                                        <TextBlock Text="Адрес пункта выдачи" 
+                                       Margin="10 5"/>
+                                        <TextBlock Text="{Binding DeliveryPoint.Adress}"
+                                       Margin="5"/>
+
+                                    </StackPanel>
+                                </StackPanel>
+                                <StackPanel Grid.Column="1">
+                                    <ListBox d:ItemsSource="{d:SampleData ItemCount=8}"
+                                         ItemsSource="{Binding OrderProduct}"
+                                         Margin="5"
+                                         BorderBrush="Gray"
+                                         BorderThickness="2"
+                                         Padding="2"
+                                         MaxWidth="200">
+                                        <ListBox.ItemsPanel>
+                                            <ItemsPanelTemplate>
+                                                <WrapPanel IsItemsHost="True"/>
+                                            </ItemsPanelTemplate>
+                                        </ListBox.ItemsPanel>
+                                        <ListBox.ItemTemplate>
+                                            <DataTemplate>
+                                                <Border BorderThickness="1" BorderBrush="DarkOliveGreen" Padding="2" >
+                                                    <StackPanel>
+                                                        <TextBlock Text="{Binding Product.Title}"/>
+                                                        <TextBlock Text="{Binding Count, StringFormat='{}{0} шт.'}"/>
+                                                    </StackPanel>
+                                                </Border>
+                                            </DataTemplate>
+                                        </ListBox.ItemTemplate>
+                                    </ListBox>
+                                    <StackPanel HorizontalAlignment="Center">
+                                        <Button Margin="5" 
+                                            Style="{StaticResource MainBt}"
+                                                Visibility="{Binding EditVisible}"
+                                            x:Name="EditShipBt"
+                                            Content="Редактировать"
+                                                Click="EditShipBt_Click"/>
+                                    </StackPanel>
+                                </StackPanel>
+                            </StackPanel>
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+
+        </ListView>
+    </Grid>
+</Page>

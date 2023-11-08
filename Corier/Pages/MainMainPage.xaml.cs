@@ -1,5 +1,4 @@
-﻿using Corier.Pages;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,17 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Corier
+namespace Corier.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
+    /// Логика взаимодействия для MainMainPage.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainMainPage : Page
     {
-        public MainWindow()
+        public MainMainPage()
         {
             InitializeComponent();
-            MainFrame.NavigationService.Navigate(new AuthPage());
         }
     }
 }

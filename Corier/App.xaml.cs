@@ -1,4 +1,5 @@
-﻿using System;
+﻿using JeweleryStroreLibrary.Models;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -13,5 +14,6 @@ namespace Corier
     /// </summary>
     public partial class App : Application
     {
+        public static JeweleryDBEntities db = new JeweleryDBEntities();
     }
 }
